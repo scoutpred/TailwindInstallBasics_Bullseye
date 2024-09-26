@@ -1,0 +1,506 @@
+/* This is a style sheet, a list of CSS rules / rule sets.
+
+This is an external stylesheet. Using external stylesheets are very optimal and
+convenient than using internal stylesheets.
+
+You could make use of this by linking this stylesheet
+with the following tag in your <head> tag.
+
+    <link rel="stylesheet" href="styles.css">
+
+Before we start, let's get on to the basics.
+
+We have an example below
+
+div {
+    color: red;
+    margin: 20px;
+}
+
+li {
+    font-weight: bold;
+}
+
+"div" and "li" are selectors. Their purpose is to point out an element in the HTML file linking to this stylesheet.
+
+Inside the brackets are declarations, which contain the property (For instance,
+color) and the value (the value of the "color" property is "red").
+
+Semicolons ( ; ) at the end of each declaration is important. Otherwise, the CSS will not work.
+
+Let's put this in practice.
+*/
+
+p{
+    font-size: 18px;
+}
+
+/* To explain this, we are selecting <p> tags in the HTML. This would affect all
+<p> tags in the HTML file linked with this stylesheet. We have a property of 
+"font-size" with 18px as value.
+
+Now all text tagged with <p> will have a font-size of 18 pixels.
+
+*/
+
+header{
+    background-color: #F63232;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/*
+
+Here's another instance shown above, selecting all with <header> tags.
+
+    background-color: #F63232;
+
+This sets the background color of the header.
+
+    padding: 20px 0;
+
+This sets the padding. To know more about te padding, I want you to
+check this link for the CSS Box Model. The CSS box model is an important
+aspect when it comes to the HTML design. Think of all HTML elements as boxes.
+
+If we check the HTML padding property as mentioned above,
+we can see that it has two values. We got 20px and 0.
+This indicates that the top and bottom paddings are 20px
+while the right and left paddings are 0px.
+
+        More information can be found here
+
+    https://www.w3schools.com/css/css_padding.asp
+
+
+    
+    text-align: center;
+
+This is something you would know. If you'd use MS word that much, we got
+something known as alignments. To point the basic ones, we got the values of
+"center", "left", "right", and "justify".
+
+        More info about text alignment can be found here.
+
+    https://www.w3schools.com/css/css_text_align.asp
+
+You may ask, why the links? We have this thing called a "documentation".
+
+It's basically a dictionary for everything coding.
+
+I won't give out the rest for the sake of
+keeping things short, but I want you to rely on something
+that will help you out.
+Make it your homework, perhaps.
+
+*/
+
+.banner{
+    position: relative;
+}
+
+/*
+
+    "Wait, .banner isn't an HTML tag. What's going on?"
+
+We could select classes in the HTML file.
+It would select all elements with its class property value set to "banner".
+Check the index.HTML at Line 11
+
+If we were to select only <p> elements with the class of "banner",
+we can select with this
+
+    p.banner {
+        color: blue;
+    }
+
+Note that classes in CSS are used to style multiple elements in a page.
+
+We can select IDs as well, used to style a single element.
+If we were to select all tags that has "id="username" we can select with:
+
+    #username {
+        color: blue;
+    }
+
+*/
+
+body, ul, li, h1, h2, a{
+    margin: 0;
+    padding: 0;
+    font-family: tahoma;
+}
+
+/* This is how you do multiple selectors.
+
+Note that they are separated with a comma!
+
+Don't let the next part confuse you.
+
+*/
+
+  header h1{
+    color: white;
+    border: 8px solid white;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 36px;
+}
+
+/* "Now what is h1 doing in there?"
+
+The "h1" next to the "header" is what we call a descendant selector.
+
+Let me put it this way. It's like saying:
+
+    "Style only <h1> tags, but only IF they're inside the <header> tag.
+
+It is also noted that they do not have a comma, indicating it is a
+descendant selector.
+
+Few examples below
+
+*/
+
+.banner img{
+    max-width: 100%;
+  }
+
+.banner .welcome{
+    background:#FEB614;
+    color: white;
+    padding: 30px;
+    font-size: 60px;
+    position: absolute;
+    left: 0;
+    top: 30%;
+  } 
+
+.banner .welcome span{
+    font-size: 1.4em;
+}
+
+/* Notice the hierarchy? You'll notice it better in the third example.
+
+It's like saying: "Style all <span> tags, but only within those with the
+                    "welcome" class that is within the "banner" class"
+
+Now I want you to note something between these two selectors.
+
+    p.banner
+
+    Without the space, it indicates that it targets and styles any <p> element
+    that has a class of "banner".
+
+    p .banner
+
+    With the space, it is a descendant selector. It targets and styles any element
+    with the class ".banner" that is inside a <p> element.
+
+Passively, you just learned about the concept of Inheritance!
+
+To give an example to this concept:
+
+*/
+
+article{
+    color: rgb(63, 1, 1);
+    padding: 30px;
+}
+
+/*
+
+<article> is the parent element.
+
+And it will inherit its properties to its child elements:
+    <p> and <h2>
+
+Both child elements would inherit the color from its parent element.
+Explains why both <p> and <h2> have the color of its parent.
+
+Do note that not all properties are inherited.
+"margin" and "padding" usually aren't.
+
+In order for you to inherit the non-inheritable properties, see example below.
+
+*/
+
+article h2{
+    font-family: 'Courier New', Courier, monospace;
+    padding: inherit;
+}
+
+/*
+
+The "inherit" keyword as a value allows us to inherit the <article>'s padding
+property and its value.
+
+*/
+
+/*
+
+Lastly, I will demonstrate one more selector. The Attribute Selector.
+
+See example below
+
+*/
+        a[href]{
+            color: red;
+        }
+
+/*
+
+We have selected and styled all <a> tags that has an "href" attribute.
+
+*/
+
+a[href="/news.html"]{
+    color: green;
+}
+
+/*
+
+For the example above, we have selected and
+styled all <a> tags that has an "href" attribute with the value "/news.html"
+
+*/
+
+img[src*="thumb"]{
+    padding: 30px;
+    background-color: rgb(255, 217, 0);
+}
+
+/*
+
+For the example above, we have selected and
+styled all <a> tags that has an "src" attribute.
+
+Notice it has an asterisk next to src. Let's put it this way.
+
+    img[src*="thumb"]
+
+    Is translated to this:
+
+    "Select all <img> tags with "src" attribute that CONTAINS THE WORD "thumb".
+
+    If you check the HTML file at lines 31 and 32, both
+    "/img/thumb-1.png" and "/img/thumb-2.png" has the word "thumb" in it.
+
+    Thus, all "src" attributes containing those words will be styled.
+
+*/
+
+.banner img[src$=".png"]{
+    padding: 5px;
+    background-color: #fffb00;
+}
+
+/*
+Notice it has a dollar sign next to src. Let's put it this way.
+
+    .banner img[src$=".png"]
+
+    Is translated to this:
+
+    "Those that have the ".banner" class,
+    select all <img> tags with "src" attribute that has the SUFFIX ".png".
+
+    Line 12 has an img containing the .png suffix, so that gets selected.
+*/
+
+/*
+
+I hope you understood the concepts of selectors. As for homework, try to
+understand the code below. Here are the tips:
+
+For declarations, make use of the documentations.
+Make use of w3schools to learn more about each property.
+
+For selectors, use w3schools as well. you might need to study the HTML code
+as well and see where the CSS code points out in the HTML.
+
+There are some HTML elements that are not included in the last lesson, but
+give this an opportunity to use the documentation to know more about the element
+you want to know about.
+
+Study up until the next comment.
+
+*/
+
+nav{
+    background: #F4F4F4;
+    padding: 20px;
+    position: sticky;
+    top: 106px;
+    z-index: 1;
+  }
+  nav ul{
+    white-space: nowrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  nav li{
+    width: 25%;
+    display: inline-block;
+    font-size: 24px;
+  }
+  nav li a{
+    text-decoration: none;
+    color: #4B4B4B;
+  }
+  nav li a:hover{
+    text-decoration: underline;
+  }
+  nav li a.join{
+    color: #F63232;
+  }
+  main{
+    max-width: 100%;
+    width: 1200px;
+    margin: 80px auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+  article p::first-line{
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  .images{
+    text-align: center;
+    margin: 80px 0;
+    white-space: nowrap;
+  }
+  .images li{
+    display: inline-block;
+    list-style-type: none;
+    width: 40%;
+    margin: 20px 5%;
+    position: relative;
+  }
+  .images li:hover{
+    top: -4px;
+  }
+  .images li img{
+    max-width: 100%;
+  }
+  section.join{
+    background: #F4F4F4;
+    text-align: center;
+    padding: 60px 20px;
+    color: #4B4B4B;
+  }
+  section.join h2{
+    font-size: 36px;
+  }
+  form input{
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 24px;
+    border-radius: 28px;
+    border: 4px solid white;
+  }
+  form input:focus{
+    border: 4px dashed #4B4B4B;
+    outline: none;
+  }
+  form input:valid{
+    border: 4px solid #71d300;
+  }
+  footer{
+    background: #F63232;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+
+/*
+
+There you go. At least you know how to read the stylesheet, or even apply them in
+your own website.
+
+Next would be the responses.
+
+*/
+
+@media screen and (max-width: 1400px){
+
+    .banner .welcome{
+      font-size: 40px;
+    }
+  
+  }
+  
+  @media screen and (max-width: 960px){
+  
+    .banner .welcome{
+      font-size: 28px;
+    }
+    nav li{
+      font-size: 18px;
+    }
+  
+  }
+  
+  @media screen and (max-width: 700px){
+  
+    .banner .welcome{
+      font-size: 20px;
+      position: relative;
+      text-align: center;
+    }
+    .banner .welcome br{
+      display: none;
+    }
+    .banner .welcome span{
+      font-size: 1em;
+    }
+    nav li{
+      font-size: 18px;
+    }
+    .images li{
+      width: 100%;
+      display: block;
+      margin: 20px auto;
+    }
+  
+  }
+  
+  @media screen and (max-width: 560px){
+  
+    .banner .welcome{
+      font-size: 20px;
+      position: relative;
+      text-align: center;
+    }
+    .banner .welcome br{
+      display: none;
+    }
+    .banner .welcome span{
+      font-size: 1em;
+    }
+    nav li{
+      display: block;
+      width: 100%;
+      margin: 12px 0;
+    }
+    article h2{
+      font-size: 36px;
+    }
+    header, nav{
+      position: relative;
+      top: 0;
+    }
+    
+  
+  }
+
+
+
+
+
